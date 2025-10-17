@@ -2,17 +2,15 @@
   "name": "collapse-defs",
   "displayName": "Collapse To Defs",
   "description": "A simple regex based extension to collapse to function definitions. Language agnostic and extensible with regex settings ",
+  "publisher": "jcall-engineer",
   "repository": {
     "type": "git",
     "url": "https://github.com/JCall-Engineer/vscode-collapse-defs"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.75.0"
   },
-  "activationEvents": [
-    "onCommand:collapseDefs.foldAllFunctions"
-  ],
   "main": "extension.js",
   "contributes": {
     "commands": [
@@ -44,6 +42,6 @@
     "vscode:prepublish": "echo ready"
   },
   "devDependencies": {
-    "@types/vscode": "^1.70.0"
+    "@types/vscode": "^1.75.0"
   }
 }
