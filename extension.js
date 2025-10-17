@@ -57,7 +57,7 @@ function activate(context) {
             default: '{'
         };
 
-        for (let i = 0; i < doc.lineCount; i++) {
+        for (let i = doc.lineCount - 1; i >= 0; i--) {
             const blockChar = blockOpeners[langId] || blockOpeners.default;
             const line = doc.lineAt(i);
 
