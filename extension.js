@@ -15,9 +15,9 @@ function activate(context) {
         const userPatterns = config.get('foldPatterns') || {};
 
         const builtInPatterns = {
-            python: /^\s*def\s+\w+\s*\(.*\)\s*:$/,
-            javascript: /^\s*function\s+\w+\s*\(.*\)\s*\{/,
-            typescript: /^\s*(public|private|protected)?\s*(async\s+)?\w+\s*\(.*\)\s*\{/,
+            python: /^\s*(async\s+)?def\s+\w+\s*\(.*\)\s*(\s*->\s*[^:]+)?:$/,
+            javascript: /^\s*(async\s+)?function\s+\w+\s*\([^)]*\)\s*\{$|^.*(async\s+)?\([^)]*\)\s*=>\s*\{$/,
+            typescript: /^\s*(export\s+)?(async\s+)?function\s+\w+\s*\([^)]*\)(\s*:\s*[^{]+)?\s*\{$|^.*(async\s+)?\([^)]*\)(\s*:\s*[^{]+)?\s*=>\s*\{$|^\s*(public|private|protected|static)?\s*(async\s+)?\w+\s*\([^)]*\)(\s*:\s*[^{]+)?\s*\{$/,
             java: /^\s*(public|private|protected)?\s+\w+\s+\w+\s*\(.*\)\s*\{/,
             csharp: /^\s*(public|private|protected)?\s+\w+\s+\w+\s*\(.*\)\s*\{/,
             c: /^\s*\w[\w\s\*]*\s+\w+\s*\([^)]*\)\s*\{/,
