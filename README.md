@@ -7,7 +7,7 @@ Collapses all function or method blocks in your code using customizable regex pa
 - Run the command: **Collapse All Function Blocks**
 - Or use the shortcut: `Ctrl+K Ctrl+Shift+{`
 
-This command folds all top-level function definitions in the current file based on the active language.
+This command folds all function definitions in the current file based on the active language.
 
 ---
 
@@ -17,7 +17,7 @@ You can override fold patterns per language via `settings.json`:
 
 ```jsonc
 "collapseDefs.foldPatterns": {
-  "python": "^\\s*def\\s+\\w+\\s*\\(.*\\)\\s*:",
+  "python": "^\\s*(async\\s+)?def\\s+\\w+\\s*\\(.*\\)\\s*(\\s*->\\s*[^:]+)?:$",
   "cpp": "^(?!\\s*(if|else|for|while|switch|do|try|catch|namespace|class|struct|union)\\b)[\\w:<>&\\*,=\\s]+\\s+[\\w:<>&\\*,=\\s]+\\s*\\(.*\\)\\s*(const)?\\s*\\{"
 }
 ```
