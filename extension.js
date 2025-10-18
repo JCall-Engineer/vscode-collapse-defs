@@ -8,6 +8,9 @@ function activate(context) {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
 
+        // Unfold everything first to start with a clean slate
+        vscode.commands.executeCommand('editor.unfoldAll');
+
         const doc = editor.document;
         const langId = doc.languageId;
 
@@ -62,7 +65,7 @@ function activate(context) {
             const line = doc.lineAt(i);
 
             if (pattern.test(line.text)) {
-                if (DEBUG && output) output.appendLine(`Matched: ${line.text}`);
+                if (DEBUG && output) output.appendLine(`Matched line ${i + 1}: ${line.text}`);
                 if (line.text.trim().endsWith(blockChar) && i + 1 < doc.lineCount) {
                     const nextLine = doc.lineAt(i + 1);
                     if (nextLine.firstNonWhitespaceCharacterIndex > line.firstNonWhitespaceCharacterIndex) {
