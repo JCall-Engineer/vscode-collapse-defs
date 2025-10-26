@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/JCall-Engineer/vscode-collapse-defs"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -30,6 +30,11 @@
       "type": "object",
       "title": "Collapse To Defs",
       "properties": {
+        "collapseDefs.debug": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable debug logging to output channel"
+        },
         "collapseDefs.foldPatterns": {
           "type": "object",
           "default": {},

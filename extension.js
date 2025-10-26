@@ -34,7 +34,7 @@ function activate(context) {
 
 		let pattern;
 
-		const DEBUG = false; // Set to true if debugging regex matches
+		const DEBUG = config.get('debug') || false;; // Set to true if debugging regex matches
 		const output = DEBUG ? vscode.window.createOutputChannel("Collapse To Defs") : null;
 		if (DEBUG && output) output.clear();
 		if (DEBUG && output) output.appendLine(`Language: ${langId}`);
