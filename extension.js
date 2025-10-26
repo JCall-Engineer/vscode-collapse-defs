@@ -19,8 +19,8 @@ function activate(context) {
 
 		const builtInPatterns = {
 			python: /^\s*(async\s+)?def\s+\w+\s*\(.*\)\s*(\s*->\s*[^:]+)?:$/,
-			javascript: /^\s*(async\s+)?function\s+(\w+\s*)?\([^)]*\)\s*\{$|^.*(async\s+)?\([^)]*\)\s*=>\s*\{$/,
-			typescript: /^\s*(export\s+)?(async\s+)?function\s+(\w+\s*)?\([^)]*\)(\s*:\s*[^{]+)?\s*\{$|^.*(async\s+)?\([^)]*\)(\s*:\s*[^{]+)?\s*=>\s*\{$|^\s*(public|private|protected|static)?\s*(async\s+)?(\w+\s*)?\([^)]*\)(\s*:\s*[^{]+)?\s*\{$/,
+			javascript: /^.*(async\s+)?function(\s+\w+)?\s*\([^)]*\)\s*\{$|^.*(async\s+)?\([^)]*\)\s*=>\s*\{$/,
+			typescript: /^.*(export\s+)?(async\s+)?function\s+(\w+\s*)?\([^)]*\)(\s*:\s*[^{]+)?\s*\{$|^.*(async\s+)?\([^)]*\)(\s*:\s*[^{]+)?\s*=>\s*\{$|^.*(public|private|protected|static)?\s*(async\s+)?(\w+\s*)?\([^)]*\)(\s*:\s*[^{]+)?\s*\{$/,
 			java: /^\s*(public|private|protected)?\s+\w+\s+\w+\s*\(.*\)\s*\{/,
 			csharp: /^\s*(public|private|protected)?\s+\w+\s+\w+\s*\(.*\)\s*\{/,
 			c: /^\s*\w[\w\s\*]*\s+\w+\s*\([^)]*\)\s*\{/,
