@@ -58,18 +58,12 @@ function activate(context) {
 		if (DEBUG && output) output.appendLine(`Pattern: ${pattern}`);
 		if (DEBUG && output) output.show();
 
-		const blockOpeners = {
-			python: ':',
-			default: '{'
-		};
-
 		for (let i = doc.lineCount - 1; i >= 0; i--) {
-			const blockChar = blockOpeners[langId] || blockOpeners.default;
 			const line = doc.lineAt(i);
 
 			if (pattern.test(line.text)) {
 				if (DEBUG && output) output.appendLine(`Matched line ${i + 1}: ${line.text}`);
-				if (line.text.trim().endsWith(blockChar) && i + 1 < doc.lineCount) {
+				if (i + 1 < doc.lineCount) {
 					const nextLine = doc.lineAt(i + 1);
 					if (nextLine.firstNonWhitespaceCharacterIndex > line.firstNonWhitespaceCharacterIndex) {
 						// Likely a multi-line block
@@ -77,10 +71,10 @@ function activate(context) {
 						vscode.commands.executeCommand('editor.fold');
 						if (DEBUG && output) output.appendLine(`[FOLDING] ${line.text}`);
 					} else {
-						if (DEBUG && output) output.appendLine(`[SKIPPED: one-liner] ${line.text}`);
+						if (DEBUG && output) output.appendLine(`[SKIPPED: non-indented, suspected one-liner] ${line.text}`);
 					}
 				} else {
-					if (DEBUG && output) output.appendLine(`[IGNORED: no '${blockChar}}'] ${line.text}`);
+					if (DEBUG && output) output.appendLine(`[IGNORED: last line of file] ${line.text}`);
 				}
 			}
 		}

@@ -78,9 +78,8 @@ The extension:
 
 1. Scans the file from bottom to top
 2. Tests each line against your regex pattern
-3. Checks if the line ends with the appropriate block character (`:` for Python, `{` for C-style languages)
-4. Verifies the next line is indented (multi-line block detection)
-5. Folds the block if all conditions pass
+3. Verifies the next line exists and is indented (multi-line block detection)
+4. Folds the block if all conditions pass
 
 **One-liners are ignored by design** — only actual multi-line blocks get folded.
 
