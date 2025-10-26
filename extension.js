@@ -28,7 +28,7 @@ function activate(context) {
 			// Yeah, it's ugly. But it folds everything that walks and talks like a C++ function. Do not gaze into its eyes for too long.
 			cpp: /^(?!\s*(if|else|for|while|switch|do|try|catch|namespace|class|struct|union)\b)[\w:<>&\*,=\s]+\s+[\w:<>&\*,=\s]+\s*\(.*\)\s*(const)?\s*\{/,
 
-			css: /^.*\{$/,
+			css: /^(?!.*@(layer|media|keyframes|supports|container))[^}]*\{$/,
 			html: /^\s*<[^/>]+>\s*$/,
 		};
 

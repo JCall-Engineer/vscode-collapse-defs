@@ -38,6 +38,8 @@ The extension comes with default patterns for:
 - **C#** - Methods with access modifiers
 - **C** - Function definitions
 - **C++** - Function definitions (excludes control flow keywords)
+- **CSS** - Selectors (excludes @layer @media @keyframes @supports @container)
+- **HTML** - Opening tags
 
 No pattern for your language? Just add a custom regex in settings!
 
